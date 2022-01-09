@@ -1,0 +1,511 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  text-decoration: none;
+}
+
+body {
+  /*width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    background-color: #2e2b2b;*/
+}
+.header {
+  display: flex;
+  height: px;
+  height: 30px;
+  background-color: #211f1f;
+  justify-content: space-between;
+  color: white;
+}
+.header img {
+  width: 66px;
+  margin-left: 20px;
+}
+.header .sign {
+  color: white;
+  display: flex;
+  width: 150px;
+  justify-content: space-between;
+  align-items: center;
+  margin-right: 40px;
+}
+.header .sign a {
+  color: white;
+}
+.container {
+  width: 100%;
+  background-color: #2e2b2b;
+  overflow: hidden;
+  display: flex;
+}
+@media screen and (max-width: 650px) {
+  .container {
+    display: flex;
+    flex-direction: column;
+    height: 877px;
+  }
+}
+@media screen and (min-height: 800px) {
+  .container {
+    height: 910px;
+  }
+}
+
+@media screen and (min-height: 1024px) {
+  .container {
+    height: 1335px;
+  }
+}
+
+.textos {
+  color: white;
+  width: 50%;
+  padding: 32px;
+  margin-left: 40px;
+
+  position: relative;
+  top: 30px;
+}
+
+@media screen and (max-width: 650px) {
+  .textos {
+    width: 95%;
+    text-align: center;
+    padding: 0px;
+    margin: 0px;
+  }
+}
+
+.textos h1 {
+  font-size: 45px;
+  /* margin-bottom: 16px;
+    margin-bottom: 20px;*/
+}
+
+.graficos {
+  width: 50%;
+}
+
+.img-big {
+  position: absolute;
+  width: 45%;
+  top: 16%;
+}
+
+@media screen and (max-width: 650px) {
+  .img-big {
+    top: 56%;
+  }
+}
+@media screen and (max-width: 450px) {
+  .img-big {
+    top: 68%;
+    left: 24%;
+    width: 75%;
+  }
+}
+
+.img-medium {
+  width: 40%;
+  position: absolute;
+  top: 60%;
+
+  left: 60%;
+}
+
+@media screen and (max-width: 450px) {
+  .img-medium {
+    left: 1%;
+    top: 86%;
+    width: 80%;
+  }
+}
+
+.img-small {
+  width: 30%;
+  position: absolute;
+
+  top: 70%;
+  left: 33%;
+}
+@media screen and (max-width: 450px) {
+  .img-small {
+    left: 1%;
+    top: 66%;
+    width: 52%;
+  }
+}
+.register {
+  width: 100%;
+  height: 300px;
+  color: white;
+  margin-top: 25%;
+}
+
+@media screen and (max-width: 650px) {
+  .register {
+    visibility: hidden;
+  }
+}
+
+.registerNow {
+  visibility: hidden;
+}
+
+@media screen and (max-width: 650px) {
+  .registerNow {
+    visibility: visible;
+    position: absolute;
+    top: 36%;
+    left: 40%;
+  }
+}
+@media screen and (max-width: 450px) {
+  .registerNow {
+    visibility: visible;
+    position: absolute;
+    top: 46%;
+    left: 40%;
+  }
+}
+.register input {
+  width: 50%;
+  border-radius: 8px;
+  height: 30px;
+}
+.register h5 {
+  margin-bottom: 5px;
+}
+.register a button {
+  margin-top: 7px;
+  height: 33px;
+  width: 100px;
+  border-radius: 10px;
+}
+
+.login-body {
+  background-color: rgb(37, 36, 36);
+  height: 800px;
+}
+
+.login-content {
+  width: 300px;
+  color: white;
+  margin: 0px auto;
+  height: 400px;
+  margin-top: 100px;
+}
+.textos-login {
+  color: white;
+  text-align: center;
+}
+.login-box {
+  border: 1px solid;
+  border-radius: 8px;
+  width: 90%;
+  margin: 0px auto;
+  margin-top: 28px;
+  background-color: rgb(56, 49, 49);
+  height: 224px;
+  text-align: center;
+}
+
+.login-box input {
+  width: 80%;
+  height: 33px;
+  margin: o auto;
+  margin: 5px;
+  border-radius: 13px;
+}
+
+.login-box h5 {
+  margin-top: 15px;
+  text-align: start;
+  margin-left: 40px;
+}
+.login-box a button {
+  height: 33px;
+  width: 100px;
+  border-radius: 10px;
+}
+.login-box a button:hover {
+  height: 33px;
+  width: 100px;
+  border-radius: 10px;
+  background-color: rgb(131, 196, 207);
+}
+.dashboard-body {
+  background-color: black;
+  width: 100%;
+  height: 1120px;
+}
+
+.menuV {
+  background-color: rgb(49, 49, 46);
+  float: left;
+  width: 15%;
+  height: 95.5%;
+  overflow: hidden;
+}
+@media screen and (max-width: 900px) {
+  .menuV {
+    visibility: hidden;
+  }
+}
+.menuV1 {
+  background-color: rgb(49, 49, 46);
+  float: left;
+  width: 8%;
+  height: 950px;
+  overflow: hidden;
+  visibility: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 39px;
+  position: relative;
+  left: -15%;
+}
+@media screen and (max-width: 900px) {
+  .menuV1 {
+    visibility: visible;
+  }
+}
+.menuV a {
+  color: white;
+  padding: 20px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.menuV1 a {
+  color: white;
+  padding: 20px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.menuV a:hover {
+  background-color: rgb(68, 68, 67);
+  color: white;
+}
+.menuV1 a:hover {
+  background-color: rgb(68, 68, 67);
+  color: white;
+}
+#logo img {
+  width: 110px;
+}
+
+.menuV a img {
+  width: 35px;
+}
+
+@media screen and (max-width: 900px) {
+  .menuV1 a img {
+    width: 32px;
+  }
+}
+.header-dashboard {
+  width: 100%;
+  background-color: rgb(49, 49, 46);
+  float: right;
+  height: 49px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.header-dashboard h4 {
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.grafic-img {
+  color: white;
+  display: flex;
+  flex-wrap: wrap;
+  width: 85%;
+  float: right;
+  position: relative;
+  top: -85%;
+  margin-top: 5%;
+}
+.grafic-img h4 {
+  margin-left: 37px;
+}
+.grafic-img h1 {
+  margin-left: 4%;
+}
+.img-big-grid {
+  width: 61%;
+  position: absolute;
+  top: 38%;
+}
+
+@media screen and (max-width: 650px) {
+  .img-big-grid {
+    width: 95%;
+    height: 428px;
+    position: absolute;
+    top: 38%;
+  }
+}
+
+.img-medium-grid {
+  width: 39%;
+
+  position: absolute;
+  left: 59%;
+  top: 340px;
+}
+@media screen and (max-width: 1240px) {
+  .img-medium-grid {
+    top: 270px;
+  }
+}
+@media screen and (max-width: 950px) {
+  .img-medium-grid {
+    top: 208px;
+  }
+}
+@media screen and (max-width: 750px) {
+  .img-medium-grid {
+    top: 165px;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .img-medium-grid {
+    width: 95%;
+    height: 336px;
+    top: 1116%;
+    left: 0%;
+  }
+}
+.img-small-grid {
+  width: 45%;
+  position: absolute;
+  left: 57%;
+  top: 10px;
+}
+@media screen and (max-width: 650px) {
+  .img-small-grid {
+    width: 95%;
+    height: 250px;
+    top: 1925%;
+    left: 0%;
+  }
+}
+.list-box {
+  padding: 40px;
+  width: 85%;
+  float: right;
+  color: white;
+  position: absolute;
+  left: 17%;
+  top: 5%;
+}
+
+.list-img {
+  width: 85%;
+  height: 400px;
+}
+.add-img {
+  width: 75px;
+}
+
+.list-box h1 {
+  width: 85%;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.account-box {
+  border-radius: 8px;
+  width: 30%;
+  margin: 0px auto;
+  color: white;
+  position: absolute;
+  left: 43%;
+  top: 24%;
+}
+.account-box input {
+  color: white;
+  width: 80%;
+  height: 39px;
+  border-radius: 7px;
+  background-color: transparent;
+}
+.account-box h5 {
+  margin-left: 10px;
+  font-size: 28px;
+  color: white;
+  font-weight: 500;
+  margin-top: 15px;
+}
+.account-box a button {
+  width: 29%;
+  height: 39px;
+  border-radius: 9px;
+  margin-left: 25%;
+}
+.account-box a button:hover {
+  background-color: rgb(68, 68, 67);
+  color: white;
+}
+
+.account-box img {
+  width: 130px;
+  margin-left: 25%;
+}
+.account-box h3 {
+  font-size: 28px;
+  font-weight: 500;
+  margin-left: 15%;
+}
+
+.select {
+  position: absolute;
+  left: 82%;
+  top: 0px;
+}
+
+.arrow:hover {
+  background-color: black;
+  cursor: pointer;
+}
+.addTransation {
+  position: absolute;
+  top: 25%;
+  left: 38%;
+  width: 450px;
+  height: 500px;
+}
+.addTransation img {
+  width: 450px;
+  height: 500px;
+}
+.addTransationButton {
+  color: white;
+  position: absolute;
+  top: 25%;
+  left: 38%;
+  width: 572px;
+  height: 324px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.addTransationButton a button {
+  width: 200px;
+  height: 40px;
+  border-radius: 7px;
+}
