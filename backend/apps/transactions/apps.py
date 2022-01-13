@@ -3,4 +3,4 @@ from django.apps import AppConfig
 
 class TransactionlistConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'apps.transactionlist'
+    name = 'apps.transactions'

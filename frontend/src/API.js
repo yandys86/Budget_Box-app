@@ -68,4 +68,18 @@ export default class API {
       });
     return savedPost;
   };
+
+  //Get Category
+
+  getCategory = async () => {
+    const category = await api
+      .get("/category/")
+      .then((response) => {
+        return response.data;
+      })
+      .catch((error) => {
+        throw new Error(error);
+      });
+    return tags;
+  };
 }

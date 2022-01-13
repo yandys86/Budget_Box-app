@@ -1,29 +1,31 @@
 from django.db import models
-
+from apps.users.models import User
 from apps.category.models import Category
-from apps.transactionType.models import TransactionType
+
 
 # Create your models here.
 
 
-class TransactionList(models.Model):
+class Transactions(models.Model):
     class Meta(object):
-        db_table = 'transactionList'
-
-    transactionType = models.ForeignKey(
-        TransactionType, on_delete=models.CASCADE, db_index=True
-    )
+        db_table = 'transaction'
 
     category = models.ForeignKey(
         Category, on_delete=models.CASCADE, db_index=True
     )
+    user = models.ForeignKey(
+        User, on_delete=models.CASCADE, db_index=True
+    )
+
     name = models.CharField(
         'Name', blank=False, null=False, db_index=True, max_length=100, default='Name'
     )
-    cost = models.IntegerField(
-        'Cost', blank=False, null=False, db_index=True
+    type = models.CharField(
+        'Type', blank=False, null=False, max_length=50
     )
-
+    amount = models.IntegerField(
+        'Amount', blank=False, null=False, db_index=True
+    )
     created_at = models.DateTimeField(
         'Created Datetime', blank=True, auto_now_add=True
     )

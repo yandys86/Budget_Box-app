@@ -41,8 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'apps.users',
     'apps.category',
-    'apps.transactionType',
-    'apps.transactionlist'
+    'apps.transactions'
 
 
 ]

@@ -7,7 +7,7 @@ class User(models.Model):
     class Meta(object):
         db_table = 'user'
 
-    user_name = models.CharField(
+    user = models.CharField(
         'User Name', blank=False, null=False, max_length=50, db_index=True
     )
     password = models.CharField(
