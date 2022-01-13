@@ -29,7 +29,7 @@ export const signUp = (user_name, email, password) => {
         dispatch(push("/"));
       })
       .catch((error) => {
-        alert("Failed to connect API to add a post");
+        alert("Failed to connect API");
         console.log(error);
       });
   };

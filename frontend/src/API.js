@@ -39,6 +39,7 @@ api.interceptors.request.use(
 
 export default class API {
   signUp = async (user_name, email, password) => {
+    console.log("connectin backend");
     const savedPost = await api
       .post("/users/signup/", {
         user_name: user_name,
@@ -80,6 +81,6 @@ export default class API {
       .catch((error) => {
         throw new Error(error);
       });
-    return tags;
+    return category;
   };
 }
