@@ -1,4 +1,7 @@
+import profile
+from pyexpat import model
 from django.db import models
+from cloudinary.models import CloudinaryField
 
 # Create your models here.
 
@@ -16,6 +19,11 @@ class User(models.Model):
     email = models.EmailField(
         'email', blank=False, null=False, max_length=254, db_index=True
     )
+    budget = models.IntegerField(
+        "Budget", blank=False, null=False, default=0)
+
+    profile = CloudinaryField("Profile Picture", blank=True, null=True)
+
     token = models.CharField(
         'token', blank=True, null=True, max_length=500, db_index=True
     )

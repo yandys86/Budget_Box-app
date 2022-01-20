@@ -6,7 +6,7 @@ from apps.category.models import Category
 # Create your models here.
 
 
-class Transactions(models.Model):
+class Transaction(models.Model):
     class Meta(object):
         db_table = 'transaction'
 
@@ -27,7 +27,10 @@ class Transactions(models.Model):
         'Amount', blank=False, null=False, db_index=True
     )
     created_at = models.DateTimeField(
-        'Created Datetime', blank=True, auto_now_add=True
+        'Creation Date', blank=True, auto_now_add=True
+    )
+    updated_at = models.DateTimeField(
+        'Update Date', blank=True, auto_now=True
     )
 
     def __str__(self):
