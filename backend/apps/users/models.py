@@ -19,6 +19,7 @@ class User(models.Model):
     email = models.EmailField(
         'email', blank=False, null=False, max_length=254, db_index=True
     )
+
     budget = models.IntegerField(
         "Budget", blank=False, null=False, default=0)
 

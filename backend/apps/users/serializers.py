@@ -10,18 +10,20 @@ class UserSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = User
-        fields = ('user', 'email', 'password',
+        fields = ('user', 'email', 'password', 'budget', 'profile'
                   'token', 'token_expires_at')
 
 
 class UserSignUpSerializer(serializers.ModelSerializer):
+    email = serializers.CharField(required=True)
     password = serializers.CharField(write_only=True)
     token = serializers.CharField(read_only=True)
     token_expires_at = serializers.DateTimeField(read_only=True)
+    profile = serializers.ImageField(required=False)
 
     class Meta:
         model = User
-        fields = ('user', 'email', 'password',
+        fields = ('user', 'email', 'profile', 'password',
                   'token', 'token_expires_at')
 
     # Override the create method
@@ -43,10 +45,11 @@ class UserSignInSerializer(serializers.ModelSerializer):
     password = serializers.CharField(write_only=True)
     token = serializers.CharField(read_only=True)
     token_expires_at = serializers.DateTimeField(read_only=True)
+    profile = serializers.ImageField(read_only=True)
 
     class Meta:
         model = User
-        fields = ('user', 'email', 'password',
+        fields = ('user', 'email', 'password', 'profile'
                   'token', 'token_expires_at')
 
     # Override the create method
