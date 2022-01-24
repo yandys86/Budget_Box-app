@@ -1,4 +1,3 @@
-import profile
 from pyexpat import model
 from django.db import models
 from cloudinary.models import CloudinaryField
@@ -10,18 +9,19 @@ class User(models.Model):
     class Meta(object):
         db_table = 'user'
 
-    user = models.CharField(
-        'User Name', blank=False, null=False, max_length=50, db_index=True
+    name = models.CharField(
+        'Name', blank=False, null=False, max_length=50, db_index=True
+    )
+    email = models.EmailField(
+        'Email', blank=False, null=False, max_length=254, db_index=True
     )
     password = models.CharField(
         'Password', blank=False, null=False, max_length=500, db_index=True
     )
-    email = models.EmailField(
-        'email', blank=False, null=False, max_length=254, db_index=True
-    )
 
     budget = models.IntegerField(
-        "Budget", blank=False, null=False, default=0)
+        "Budget", blank=False, null=False, default=0
+    )
 
     profile = CloudinaryField("Profile Picture", blank=True, null=True)
 

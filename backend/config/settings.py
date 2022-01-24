@@ -12,6 +12,10 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 
 from pathlib import Path
 import django_heroku
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api
+import os
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -43,7 +47,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'apps.users',
     'apps.category',
-    'apps.transactions'
+    'apps.transactions',
+    'cloudinary'
 
 
 ]
@@ -125,6 +130,13 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
 STATIC_URL = 'static/'
+
+cloudinary.config(
+    cloud_name="yiyo-lmb",
+    api_key="118474262822283",
+    api_secret="dBgIm8st5iZdTXL7Af7xuCU-Suo",
+    secure=True
+)
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field

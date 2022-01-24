@@ -10,7 +10,7 @@ class UserSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = User
-        fields = ('user', 'email', 'password', 'budget', 'profile'
+        fields = ('name', 'email', 'password', 'budget', 'profile'
                   'token', 'token_expires_at')
 
 
@@ -23,7 +23,7 @@ class UserSignUpSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = User
-        fields = ('user', 'email', 'profile', 'password',
+        fields = ('name', 'email', 'profile', 'password', 'budget',
                   'token', 'token_expires_at')
 
     # Override the create method
@@ -49,7 +49,7 @@ class UserSignInSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = User
-        fields = ('user', 'email', 'password', 'profile'
+        fields = ('name', 'email', 'password', 'profile'
                   'token', 'token_expires_at')
 
     # Override the create method
