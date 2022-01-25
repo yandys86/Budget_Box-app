@@ -8,12 +8,15 @@ export default function Header2() {
         <a href="/" id="logo">
           <img src={logo} alt="" />
         </a>
-        <h4>
-          User name
-          <a href="/">
-            <img className="arrow" src={imgArrow} alt="" />
-          </a>
-        </h4>
+        <div>
+          <button className="sign-btn">
+            User Name
+            <a href="MenuContainer">
+              {" "}
+              <img className="arrow" src={imgArrow} alt="" />
+            </a>
+          </button>
+        </div>
       </div>
     </>
   );

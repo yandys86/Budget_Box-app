@@ -5,15 +5,15 @@ export default function Header() {
   return (
     <>
       <div className="header">
-        <a href="/">
+        <a href="./">
           <img src={logo} alt="" />
         </a>
         <div className="sign">
           <div>
-            <a href="/Login">Sign in</a>
+            <a href="login">Sign in</a>
           </div>
           <div>
-            <a href="/SignUp">Sign UP</a>
+            <a href="./register">Sign UP</a>
           </div>
         </div>
       </div>

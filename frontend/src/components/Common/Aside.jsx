@@ -7,28 +7,27 @@ import account_circle from "../../assets/img/account_circle_white.png";
 export default function Aside() {
   return (
     <>
-      <aside className="menuV">
-        <a href="dashboard.html">
-          <img src={dashboard_white} alt="" /> Dash board
-        </a>
-        <a href="list.html">
-          <img src={list_alt_white} alt="" /> Transaction list
-        </a>
-        <a href="account.html">
-          <img src={account_circle} alt="" /> My account
-        </a>
-      </aside>
-      <aside className="menuV1">
-        <a href="dashboard.html">
-          <img src={dashboard_white} alt="" />
-        </a>
-        <a href="list.html">
-          <img src={list_alt_white} alt="" />{" "}
-        </a>
-        <a href="account.html">
-          {" "}
-          <img src={account_circle} alt="" />
-        </a>
+      <aside className="menu-left">
+        <ul>
+          <a href="dashboard">
+            <li className="active-menu">
+              <img src={dashboard_white} alt="" />
+              <span>Dashboard</span>
+            </li>
+          </a>
+          <a href="transation">
+            <li>
+              <img src={list_alt_white} alt="" />
+              <span> Transaction list</span>
+            </li>
+          </a>
+          <a href="SignUp">
+            <li>
+              <img src={account_circle} alt="" />
+              <span> My account </span>
+            </li>
+          </a>
+        </ul>
       </aside>
     </>
   );
