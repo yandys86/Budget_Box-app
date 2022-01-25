@@ -17,11 +17,12 @@ body {
 }
 .header {
   display: flex;
-  height: px;
-  height: 30px;
+
+  height: 50px;
   background-color: #211f1f;
   justify-content: space-between;
   color: white;
+  align-items: center;
 }
 .header img {
   width: 66px;
@@ -328,7 +329,7 @@ body {
     width: 32px;
   }
 }
-.header-dashboard {
+/* .header-dashboard {
   width: 100%;
   background-color: rgb(49, 49, 46);
   float: right;
@@ -342,7 +343,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: flex-end;
-}
+} */
 
 .grafic-img {
   color: white;
