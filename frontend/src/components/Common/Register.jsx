@@ -40,7 +40,7 @@ export default function Register() {
     setIsLoading(true);
     await dispatch(signUp(values));
     setIsLoading(false);
-    history.push("/");
+    history.push("/dashboard");
   };
 
   return (
@@ -100,9 +100,8 @@ export default function Register() {
           {errors.password ? (
             <span className="error-text">{errors.password[0]}</span>
           ) : null}
-          <button type="button" class="custom-btn" onClick={onSubmit}>
+          <button className="mt-2 custom-btn" type="button" onClick={onSubmit}>
             {isLoading ? "Registering..." : "Register"}
-            Done
           </button>
         </form>
       </div>

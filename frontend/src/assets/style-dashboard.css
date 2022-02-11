@@ -631,7 +631,7 @@ body {
   border: 1px solid #707070;
   font-size: inherit;
   font-weight: bold;
-  margin: 24px auto 12px auto;
+  margin: 0px auto 12px auto;
   color: #2c2c2c;
   background-color: #ffffff;
   transition: 0.2s ease-out;
