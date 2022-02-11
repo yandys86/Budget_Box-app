@@ -16,6 +16,7 @@ import cloudinary
 import cloudinary.uploader
 import cloudinary.api
 import os
+# from PIL import Image
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.

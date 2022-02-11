@@ -1,3 +1,9 @@
+from dataclasses import field, fields
+from distutils import errors
+from distutils.log import error
+import profile
+
+from platformdirs import user_cache_dir
 from .models import User
 from rest_framework import serializers
 from django.contrib.auth.hashers import make_password, check_password
@@ -6,12 +12,51 @@ import datetime
 
 
 class UserSerializer(serializers.ModelSerializer):
-    password = serializers.CharField(write_only=True)
+    profile = serializers.CharField(write_only=True)
 
     class Meta:
         model = User
         fields = ('name', 'email', 'password', 'budget', 'profile'
                   'token', 'token_expires_at')
+
+
+class UserUpdateSerializer(serializers.ModelSerializer):
+    profile = serializers.ImageField(required=False)
+
+    def validate(self, data):
+        errors = {}
+        if 'name' not in data or not data['name']:
+            errors['name'] = ['name is required']
+
+        if 'email' not in data or not data['email']:
+            errors['emai'] = ['email is required']
+        if bool(errors):
+            raise serializers.ValidationError(errors)
+
+        return data
+
+    class Meta:
+        model = User
+        fields = ('id', 'name', 'profile', 'email',
+                  'token', 'token_expires_at')
+
+
+class UserUpdateBugetSerializer(serializers.ModelSerializer):
+    # password = serializers.CharField(write_only=True)
+
+    def validate(self, data):
+        errors = {}
+        if 'budget' not in data or not data['budget']:
+            errors['budget'] = ['budget is required']
+
+        if bool(errors):
+            raise serializers.ValidationError(errors)
+
+        return data
+
+    class Meta:
+        model = User
+        fields = ('id', 'budget')
 
 
 class UserSignUpSerializer(serializers.ModelSerializer):
@@ -49,8 +94,8 @@ class UserSignInSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = User
-        fields = ('name', 'email', 'password', 'profile'
-                  'token', 'token_expires_at')
+        fields = ('user', 'email', 'password',
+                  'token', 'token_expires_at', 'profile')
 
     # Override the create method
     def create(self, validated_data):

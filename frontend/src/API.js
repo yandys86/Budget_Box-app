@@ -38,49 +38,68 @@ api.interceptors.request.use(
 );
 
 export default class API {
-  signUp = async (user_name, email, password) => {
-    console.log("connectin backend");
-    const savedPost = await api
-      .post("/users/signup/", {
-        user_name: user_name,
-        email: email,
-        password: password,
-      })
-      .then((response) => {
-        return response.data;
-      })
-      .catch((error) => {
-        throw new Error(error);
-      });
-    return savedPost;
+  signUp = async (signUpBody) => {
+    const formData = new FormData();
+
+    for (const key in signUpBody) {
+      formData.append(key, signUpBody[key]);
+    }
+    return api.post("/users/signup/", formData);
   };
 
-  signIn = async (email, password) => {
-    const savedPost = await api
-      .post("/users/signin/", {
-        email: email,
-        password: password,
-      })
-      .then((response) => {
-        return response.data;
-      })
-      .catch((error) => {
-        throw new Error(error);
-      });
-    return savedPost;
-  };
-
-  //Get Category
-
-  getCategory = async () => {
-    const category = await api
-      .get("/category/")
-      .then((response) => {
-        return response.data;
-      })
-      .catch((error) => {
-        throw new Error(error);
-      });
-    return category;
+  signIn = async (signInBody) => {
+    const formData = new FormData();
+    for (const key in signInBody) {
+      formData.append(key, signInBody[key]);
+    }
+    return api.post("/users/signin/", formData);
   };
 }
+
+//export default class API {
+// signUp = async (user_name, email, password) => {
+//   console.log("connectin backend");
+//   const savedPost = await api
+//     .post("/users/signup/", {
+//       user_name: user_name,
+//       email: email,
+//       password: password,
+//     })
+//     .then((response) => {
+//       return response.data;
+//     })
+//     .catch((error) => {
+//       throw new Error(error);
+//     });
+//   return savedPost;
+// };
+
+// signIn = async (email, password) => {
+//   const savedPost = await api
+//     .post("/users/signin/", {
+//       email: email,
+//       password: password,
+//     })
+//     .then((response) => {
+//       return response.data;
+//     })
+//     .catch((error) => {
+//       throw new Error(error);
+//     });
+//   return savedPost;
+// };
+
+// //Get Category
+
+// getCategory = async () => {
+//   const category = await api
+//     .get("/category/")
+//     .then((response) => {
+//       return response.data;
+//     })
+//     .catch((error) => {
+//       throw new Error(error);
+//     });
+//   return category;
+// };
+//}
