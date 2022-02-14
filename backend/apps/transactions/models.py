@@ -1,30 +1,32 @@
 from django.db import models
 from apps.users.models import User
-from apps.category.models import Category
-
-
-# Create your models here.
-
+from apps.categories.models import Category
+from config.constants import *
+from django.core.validators import MinValueValidator
 
 class Transaction(models.Model):
     class Meta(object):
         db_table = 'transaction'
 
-    category = models.ForeignKey(
-        Category, on_delete=models.CASCADE, db_index=True
+    name = models.CharField(
+        'Name', blank=False, null=False, max_length=200
     )
     user = models.ForeignKey(
-        User, on_delete=models.CASCADE, db_index=True
+        User, related_name='related_user', on_delete=models.CASCADE
     )
-
-    name = models.CharField(
-        'Name', blank=False, null=False, db_index=True, max_length=100, default='Name'
+    category = models.ForeignKey(
+        Category, related_name='related_category', on_delete=models.CASCADE
     )
     type = models.CharField(
-        'Type', blank=False, null=False, max_length=50
+        'Type', blank=False, null=False, max_length=50, choices=TRANSACTION_TYPE
     )
     amount = models.IntegerField(
-        'Amount', blank=False, null=False, db_index=True
+        'Amount', blank=False, null=False, validators=[
+            MinValueValidator(1)
+        ] 
+    )
+    date = models.DateField(
+        'Date', blank=False, null=False
     )
     created_at = models.DateTimeField(
         'Creation Date', blank=True, auto_now_add=True
@@ -32,6 +34,3 @@ class Transaction(models.Model):
     updated_at = models.DateTimeField(
         'Update Date', blank=True, auto_now=True
     )
-
-    def __str__(self):
-        return self.name

@@ -1,10 +1,9 @@
-
 from rest_framework import generics
 from rest_framework.response import Response
-from .serializers import UserSerializer, UserSignUpSerializer, UserSignInSerializer
-from .models import User
-from .mixins import CustomLoginRequiredMixin
 
+from apps.users.mixins import CustomLoginRequiredMixin
+from .models import User
+from .serializers import UserSerializer, UserSignInSerializer, UserSignUpSerializer, UserUpdateBudgetSerializer, UserUpdateSerializer
 
 class UserSignUp(generics.CreateAPIView):
     queryset = User.objects.all()
@@ -15,19 +14,34 @@ class UserSignIn(generics.CreateAPIView):
     queryset = User.objects.all()
     serializer_class = UserSignInSerializer
 
-
-# If the class requires the login status, call CustomLoginRequiredMixin
-class UserCheckLogin(CustomLoginRequiredMixin, generics.RetrieveAPIView):
+class UserProfile(CustomLoginRequiredMixin, generics.ListAPIView):
+    serializer_class = UserSerializer
+    pagination_class = None
 
     def get(self, request, *args, **kwargs):
-        # We can get login_user information when we use CustomLoginRequiredMixin.
-        # - request.login_user
         serializer = UserSerializer([request.login_user], many=True)
         return Response(serializer.data[0])
 
+class UpdateProfile(CustomLoginRequiredMixin, generics.UpdateAPIView):
+    serializer_class = UserUpdateSerializer
+    queryset = User.objects.all()
+    lookup_field = 'id'
 
-# Sample: Add this 'CustomLoginRequiredMixin' to the login-required class.
-class UserList(CustomLoginRequiredMixin, generics.ListAPIView):
-    # Get all users, limit = 20
-    queryset = User.objects.all()[:20]
-    serializer_class = UserSerializer
+    def put(self, request, *args, **kwargs):
+
+        serializer = UserUpdateSerializer()
+        serializer.validate(request.data)
+
+        return self.update(request, *args, **kwargs)
+
+class UpdateBudget(CustomLoginRequiredMixin, generics.UpdateAPIView):
+    serializer_class = UserUpdateBudgetSerializer
+    queryset = User.objects.all()
+    lookup_field = 'id'
+
+    def put(self, request, *args, **kwargs):
+
+        serializer = UserUpdateBudgetSerializer()
+        serializer.validate(request.data)
+
+        return self.update(request, *args, **kwargs)
