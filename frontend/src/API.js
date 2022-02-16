@@ -124,7 +124,7 @@ export default class API {
 
   // Categories
   getCategories = () => {
-    return api.get("/category/", {
+    return api.get("/categories/", {
       requireToken: true,
     });
   };
